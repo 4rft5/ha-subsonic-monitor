@@ -5,7 +5,7 @@ A Home Assistant add-on that monitors a Subsonic API (Navidrome, etc) profile an
 ## Information
 This add-on tries to bridge a gap that somehow exists between Home Assistant and Subsonic APIs. As of right now, it gets information from the API (username, password, server url) and passes it through to make the card.
 
-The add-on uses the API to calculate playback state and the title and artist of the song. The playback state status is represented and updated as the icon for the card, as well as the album art.
+The add-on uses the API to calculate playback state, display album art and the title and artist of the song. The playback state status is represented and updated as the icon for the card.
 
 Since the API doesn't convey true "idle" or "paused" states, the add-on checks if the song runtime has been idle for thirty seconds. If it has, it is put into the "paused" state. If it doesn't change for more than five minutes, it becomes "Idle".
 
