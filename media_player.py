@@ -1,5 +1,4 @@
 import aiohttp
-import time
 from homeassistant.components.media_player import MediaPlayerEntity
 from homeassistant.components.media_player.const import MediaPlayerState
 from urllib.parse import quote_plus
@@ -26,7 +25,6 @@ class SubsonicPlayer(MediaPlayerEntity):
         self._username = username
         self._password = password
         self._server = server
-
         self._state = MediaPlayerState.IDLE
         self._media_title = None
         self._media_artist = None
@@ -34,9 +32,6 @@ class SubsonicPlayer(MediaPlayerEntity):
         self._media_image_url = None
         self._status = "Idle"
         self._icon = "mdi:stop"
-
-        self._last_minutes_ago = None
-        self._last_progress_time = None
 
     async def async_update(self):
         url = (
@@ -51,21 +46,23 @@ class SubsonicPlayer(MediaPlayerEntity):
                     if resp.status != 200:
                         self._set_idle()
                         return
+
                     data = await resp.json()
             except Exception:
                 self._set_idle()
                 return
 
         now_playing = data.get("subsonic-response", {}).get("nowPlaying", {}).get("entry", [])
+
         if isinstance(now_playing, dict):
             now_playing = [now_playing]
 
         if not now_playing:
-            if self._last_progress_time and (time.time() - self._last_progress_time > 300):
-                self._set_idle()
+            self._set_idle()
             return
 
         item = now_playing[0]
+
         self._media_title = item.get("title")
         self._media_artist = item.get("displayArtist") or item.get("artist")
         self._media_album = item.get("album")
@@ -81,25 +78,9 @@ class SubsonicPlayer(MediaPlayerEntity):
         else:
             self._media_image_url = None
 
-        minutes_ago = item.get("minutesAgo", 0)
-        now = time.time()
-        if self._last_minutes_ago is None:
-            self._last_minutes_ago = minutes_ago
-            self._last_progress_time = now
-            self._set_playing()
-        else:
-            if minutes_ago != self._last_minutes_ago:
-                self._last_minutes_ago = minutes_ago
-                self._last_progress_time = now
-                self._set_playing()
-            else:
-                elapsed = now - self._last_progress_time
-                if elapsed > 300:
-                    self._set_idle()
-                elif elapsed > 30:
-                    self._set_paused()
-                else:
-                    self._set_playing()
+        self._state = MediaPlayerState.PLAYING
+        self._status = "Playing"
+        self._icon = "mdi:play"
 
     def _set_idle(self):
         self._state = MediaPlayerState.IDLE
@@ -109,18 +90,6 @@ class SubsonicPlayer(MediaPlayerEntity):
         self._media_album = None
         self._media_image_url = None
         self._icon = "mdi:stop"
-        self._last_minutes_ago = None
-        self._last_progress_time = None
-
-    def _set_playing(self):
-        self._state = MediaPlayerState.PLAYING
-        self._status = "Playing"
-        self._icon = "mdi:play"
-
-    def _set_paused(self):
-        self._state = MediaPlayerState.PAUSED
-        self._status = "Paused"
-        self._icon = "mdi:pause"
 
     @property
     def state(self):
