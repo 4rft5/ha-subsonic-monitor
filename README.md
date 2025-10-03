@@ -7,8 +7,6 @@ This add-on tries to bridge a gap that somehow exists between Home Assistant and
 
 The add-on uses the API to calculate playback state, display album art and the title and artist of the song. The playback state status is represented and updated as the icon for the card.
 
-Since the API doesn't convey true "idle" or "paused" states, the add-on checks if the song runtime has been idle for thirty seconds. If it has, it is put into the "paused" state. If it doesn't change for more than five minutes, it becomes "Idle".
-
 ## Installation
 1. Download the latest version of the add-on from <a href="https://github.com/4rft5/ha-subsonic-monitor/releases">Releases</a>.
 
@@ -29,10 +27,6 @@ Regular Card with playback information:
 
 ![image](https://github.com/user-attachments/assets/ae7173f2-4a0a-45f4-aa36-4ddcdc4ff63a)
 
-Example of the "idle" playback state:
-
-![image](https://github.com/user-attachments/assets/3e6f2907-d267-4e6b-900e-6d1a652cf011)
-
 
 Examples of the media-control card:
 
@@ -49,4 +43,6 @@ Media Controls do not work, as this currently only can display the status of a p
 ### Issues
 
 The console will log that the newly created media_player does not support media_player features (playback). This is intended as playback controls are not integrated.
+
+Since the API doesn't convey true "idle" or "paused" states, the add-on can only report what is currently playing or was last played. I tried implementing a timer to combat this but couldn't get it to work reliably.
 
