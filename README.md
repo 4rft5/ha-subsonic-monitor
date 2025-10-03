@@ -44,7 +44,7 @@ Examples of the media-control card:
 
 Pull Requests and other contributions are welcome, especially with things like the icon for the integrations menu and HACS publishing.
 
-Media Controls do not work, as this currentl only can display the status of a profile, but would be welcomed additions if someone wanted to tackle them.
+Media Controls do not work, as this currentl7 only can display the status of a profile, but would be welcomed additions if someone wanted to tackle them.
 
 ### Issues
 
