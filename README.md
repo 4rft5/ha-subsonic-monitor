@@ -14,7 +14,7 @@ The add-on uses the API to calculate playback state, display album art and the t
    
 3. Add Integration by clicking "Add Integration" and searching for "Subsonic Monitor".
 
-4. Input Credentials and Navidrome-Compatible Server IP/hostname (e.g. `subsonic.local`, `localhost:4533` or `192.168.1.1:4533`).
+4. Input Credentials and Subsonic-Compatible Server IP/hostname (e.g. `subsonic.local`, `localhost:4533` or `192.168.1.1:4533`).
 
 5. Add the newly-created entity to your cards or dashboard.
 
