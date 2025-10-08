@@ -10,7 +10,7 @@ The add-on uses the API to calculate playback state, display album art and the t
 ## Installation
 1. Download the latest version of the add-on from <a href="https://github.com/4rft5/ha-subsonic-monitor/releases">Releases</a>.
 
-2. Place the extracted ha-jf-profile-monitor folder into your `custom_components` folder.
+2. Place the extracted ha-subsonic-profile-monitor folder into your `custom_components` folder.
    
 3. Add Integration by clicking "Add Integration" and searching for "Subsonic Monitor".
 
