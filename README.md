@@ -38,11 +38,9 @@ Examples of the media-control card:
 
 Pull Requests and other contributions are welcome, especially with things like the icon for the integrations menu and HACS publishing.
 
-Media Controls do not work, as this currently only can display the status of a profile, but would be welcomed additions if someone wanted to tackle them.
-
 ### Issues
 
-The console will log that the newly created media_player does not support media_player features (playback). This is intended as playback controls are not integrated.
+Media Controls do not work, as this currently only can display the status of a profile. The console will log that the newly created media_player does not support media_player features (playback). This is intended as playback controls are not integrated.
 
 Since the API doesn't convey true "idle" or "paused" states, the add-on can only report what is currently playing or was last played. I tried implementing a timer to combat this but couldn't get it to work reliably.
 
