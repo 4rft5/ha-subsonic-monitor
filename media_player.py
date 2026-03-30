@@ -5,6 +5,9 @@ from homeassistant.components.media_player.const import MediaPlayerState
 from urllib.parse import quote_plus
 from .const import DOMAIN
 
+def _write_image(img_path, img_bytes):
+    with open(img_path, "wb") as f:
+        f.write(img_bytes)
 
 async def async_setup_entry(hass, entry, async_add_entities):
     data = hass.data[DOMAIN][entry.entry_id]
@@ -83,8 +86,7 @@ class SubsonicPlayer(MediaPlayerEntity):
                             os.makedirs(www_path, exist_ok=True)
                             img_filename = f"subsonic_cover_{self._username}.jpg"
                             img_path = os.path.join(www_path, img_filename)
-                            with open(img_path, "wb") as f:
-                                f.write(img_bytes)
+                            await self._hass.async_add_executor_job(_write_image, img_path, img_bytes)
                             self._current_cover_id = cover_id
                             self._media_image_url = f"/local/{img_filename}?v={cover_id}"
             except Exception:
