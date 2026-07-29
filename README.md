@@ -42,15 +42,15 @@ The add-on uses the API to calculate playback state/location, display album art 
 ## Screenshots
 A Regular Card:
 
-<img width="100" height="24" alt="image" src="https://github.com/user-attachments/assets/79063b43-7568-4736-abd9-2cb69e85ebaa" />
+<img width="200" height="48" alt="image" src="https://github.com/user-attachments/assets/79063b43-7568-4736-abd9-2cb69e85ebaa" />
 
 Regular Card with playback information:
 
-<img width="100" height="24" alt="image" src="https://github.com/user-attachments/assets/1090061d-234c-4f20-8b51-bdf7e1e6358a" />
+<img width="200" height="48" alt="image" src="https://github.com/user-attachments/assets/1090061d-234c-4f20-8b51-bdf7e1e6358a" />
 
 Examples of the media-control card:
 
-<img width="207" height="60" alt="image" src="https://github.com/user-attachments/assets/c5957ffa-e962-40fb-96c0-507f8b4ca943" />
+<img width="414" height="120" alt="image" src="https://github.com/user-attachments/assets/c5957ffa-e962-40fb-96c0-507f8b4ca943" />
 
 ## Contributions
 
