@@ -1,6 +1,6 @@
 # Subsonic Monitor
 
-A Home Assistant add-on that monitors a Subsonic API (Navidrome, etc) profile and allows it to be displayed as a card.
+A Home Assistant integration that monitors a Subsonic API and allows it to be displayed as a card.
 
 ## Information
 This add-on tries to bridge a gap that somehow exists between Home Assistant and Subsonic APIs. As of right now, it gets information from the API (username, password, server url) and passes it through to make the card.
@@ -54,7 +54,7 @@ Examples of the media-control card:
 
 ## Contributions
 
-Pull Requests and other contributions are welcome, especially with things like the icon for the integrations menu and HACS publishing.
+Pull Requests and other contributions are welcome, especially with things like the icon for the integrations menu.
 
 ### Issues
 
