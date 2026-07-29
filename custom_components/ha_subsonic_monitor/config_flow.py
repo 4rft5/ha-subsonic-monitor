@@ -2,16 +2,17 @@ import voluptuous as vol
 from homeassistant import config_entries
 from .const import DOMAIN
 
+
 class SubsonicMonitorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
-    CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_PUSH
+    CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL
 
     async def async_step_user(self, user_input=None):
         if user_input is not None:
             return self.async_create_entry(
                 title=f"Subsonic - {user_input['username']}",
-                data=user_input
+                data=user_input,
             )
 
         data_schema = vol.Schema(

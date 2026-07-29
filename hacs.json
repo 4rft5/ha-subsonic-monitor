@@ -1,0 +1,8 @@
+{
+  "name": "Subsonic Monitor",
+  "domain": "ha_subsonic_monitor",
+  "documentation": "https://github.com/4rft5/ha-subsonic-monitor",
+  "issue_tracker": "https://github.com/4rft5/ha-subsonic-monitor/issues",
+  "codeowners": ["@4rft5"],
+  "render_readme": true
+}
