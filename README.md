@@ -5,34 +5,52 @@ A Home Assistant add-on that monitors a Subsonic API (Navidrome, etc) profile an
 ## Information
 This add-on tries to bridge a gap that somehow exists between Home Assistant and Subsonic APIs. As of right now, it gets information from the API (username, password, server url) and passes it through to make the card.
 
-The add-on uses the API to calculate playback state, display album art and the title and artist of the song. The playback state status is represented and updated as the icon for the card.
+The add-on uses the API to calculate playback state/location, display album art and the title and artist of the song. The playback state status is represented and updated as the icon for the card.
 
 ## Installation
+
+### HACS
+
+1. Add this repo to HACS as a custom repository:
+   
+[![Add Repository](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=4rft5&repository=ha-subsonic-monitor&category=Integration)
+
+2. Install the integration from HACS
+
+3. Restart Home Assistant
+
+4. Setup the integration using the UI:
+ 
+[![Add Integration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=ha_subsonic_monitor)
+
+5. Add the newly-created entity to your cards or dashboard.
+
+### Manual
+
 1. Download the latest version of the add-on from <a href="https://github.com/4rft5/ha-subsonic-monitor/releases">Releases</a>.
 
-2. Place the extracted ha-subsonic-monitor folder into your `custom_components` folder.
+2. Place the extracted ha_subsonic_monitor folder into your `custom_components` folder.
    
 3. Add Integration by clicking "Add Integration" and searching for "Subsonic Monitor".
 
-4. Input Credentials and Subsonic-Compatible Server IP/hostname (e.g. `subsonic.local`, `localhost:4533` or `192.168.1.1:4533`).
+4. Setup the integration using the UI:
+ 
+[![Add Integration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=ha_subsonic_monitor)
 
 5. Add the newly-created entity to your cards or dashboard.
 
 ## Screenshots
 A Regular Card:
 
-![image](https://github.com/user-attachments/assets/0f9c02db-bfca-489d-a0db-9c82659f44b8)
+<img width="100" height="24" alt="image" src="https://github.com/user-attachments/assets/79063b43-7568-4736-abd9-2cb69e85ebaa" />
 
 Regular Card with playback information:
 
-![image](https://github.com/user-attachments/assets/ae7173f2-4a0a-45f4-aa36-4ddcdc4ff63a)
-
+<img width="100" height="24" alt="image" src="https://github.com/user-attachments/assets/1090061d-234c-4f20-8b51-bdf7e1e6358a" />
 
 Examples of the media-control card:
 
-![image](https://github.com/user-attachments/assets/209ed0ed-2788-4078-af96-93cda894b8fb)
-
-
+<img width="207" height="60" alt="image" src="https://github.com/user-attachments/assets/c5957ffa-e962-40fb-96c0-507f8b4ca943" />
 
 ## Contributions
 
@@ -40,7 +58,5 @@ Pull Requests and other contributions are welcome, especially with things like t
 
 ### Issues
 
-Media Controls do not work, as this currently only can display the status of a profile. The console will log that the newly created media_player does not support media_player features (playback). This is intended as playback controls are not integrated.
-
-Since the API doesn't convey true "idle" or "paused" states, the add-on can only report what is currently playing or was last played. I tried implementing a timer to combat this but couldn't get it to work reliably.
+Media Controls are not supported as the Subsonic API does not allow for remote control. This integration can only view and report what is playing on your server.
 
