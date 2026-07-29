@@ -1,4 +1,4 @@
-# Subsonic Monitor
+# Subsonic Monitor for Home Assistant
 
 A Home Assistant integration that monitors a Subsonic API and allows it to be displayed as a card.
 
